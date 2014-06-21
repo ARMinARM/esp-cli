@@ -85,8 +85,6 @@ function init() {
         action: function () {
             var espVer = env.VERSION;
             console.log('CLI: ' + version + (espVer ? ', Espruino: ' + espVer : ''));
-            var espBrd = env.BOARD;
-            console.log('Board: ' + espBrd + '.');
             input.displayPrompt();
         }
     });
