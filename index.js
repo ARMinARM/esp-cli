@@ -98,7 +98,7 @@ function init() {
     // set up queue interval
     setInterval(flush, 5);
 
-	loadBoardInfo('ARMINARM.json');
+	loadBoardInfo('ARMinARM.json');
 	
     // get board info
     query('process.env', function (e, details) {

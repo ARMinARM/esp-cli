@@ -14,8 +14,8 @@
     "thumb" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1_thumb.jpg",
     "image" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1.jpg",
   },
-  "ARMINARM" : {
-    "json" : "ARMINARM.json",
+  "ARMinARM" : {
+    "json" : "ARMinARM.json",
     "thumb" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1_thumb.jpg",
     "image" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1.jpg",
   },

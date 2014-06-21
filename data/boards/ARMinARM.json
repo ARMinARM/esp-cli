@@ -2,10 +2,10 @@
  "info": {
   "image_url": "http://www.espruino.com/img/ESPRUINOBOARD.jpg", 
   "thumb_url": "http://www.espruino.com/img/ESPRUINOBOARD_thumb.jpg", 
-  "name": "F103E", 
-  "binary_version": "1v62", 
+  "name": "ARMinARM", 
+  "binary_version": "1v65", 
   "variables": 2600, 
-  "binary_name": "espruino_%v_f103e.bin", 
+  "binary_name": "espruino_%v_ARMinARM.bin", 
   "link": [
    "http://www.espruino.com/kick"
   ], 
@@ -84,10 +84,10 @@
  }, 
  "devices": {
   "LED1": {
-   "pin": "C0"
+   "pin": "B0"
   }, 
   "LED2": {
-   "pin": "C1"
+   "pin": "B1"
   }, 
   "USB": {
    "pin_bp": "A12", 
