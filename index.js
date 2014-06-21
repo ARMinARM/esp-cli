@@ -23,6 +23,7 @@ var repl = require('repl'), // https://github.com/joyent/node/blob/master/lib/re
     env = {},
     esp;
 
+/*
 function readPorts(err, ports) {
     ports.forEach(eachPort);
     attempt();
@@ -47,7 +48,7 @@ function analyze(port, cb) {
     if (!connected) {
         var dev = port.comName,
             id = port.pnpId;
-
+		
         console.log('Analyzing ' + dev + ' (' + id + ')');
         if (id.match('Espruino') || id.match('STM32')) {
             console.log('Found compatible Espruino device! --^');
@@ -60,6 +61,7 @@ function analyze(port, cb) {
 
     cb(null);
 }
+*/
 
 function connect(dev) {
     // connect to espruino
@@ -83,6 +85,8 @@ function init() {
         action: function () {
             var espVer = env.VERSION;
             console.log('CLI: ' + version + (espVer ? ', Espruino: ' + espVer : ''));
+            var espBrd = env.BOARD;
+            console.log('Board: ' + espBrd + '.');
             input.displayPrompt();
         }
     });
@@ -94,11 +98,15 @@ function init() {
     // set up queue interval
     setInterval(flush, 5);
 
+	loadBoardInfo('ARMINARM.json');
+	
     // get board info
     query('process.env', function (e, details) {
+		console.log('query: (e) ' + e);
         if (!e) {
             env = details || {};
             loadBoardInfo(env.BOARD);
+            console.log('query: (env) ' + env);
         }
     });
 }
@@ -109,9 +117,11 @@ function exit(e) {
 }
 
 function loadBoardInfo(board) {
+	console.log('loadBoardInfo: trying to load board info for ' + board);
     if (board) {
         try {
             boardInfo = require('./data/boards/' + board);
+            console.log('loading board info for ' + board);
             // populate pins for autocomplete
             (boardInfo.pins || []).forEach(function eachPin(pin) {
                 context[pin.name] = 1;
@@ -221,6 +231,7 @@ function loadModule(args) {
             if (body) {
                 send('echo(0);');
                 send('Modules.addCached("' + mod + '", ' + JSON.stringify(body) + '); echo(1)');
+                log('Module added (RT)', false);
             }
         };
 
@@ -281,6 +292,6 @@ function isRecoverableError(e) {
     return e && e.name === 'SyntaxError' && (/^Unexpected end of input/.test(e.message) || /^Unexpected token ILLEGAL/.test(e.message));
 }
 
-console.log('Searching for Espruino compatible device...');
-serialport.list(readPorts);
-
+console.log('Connecting to Espruino compatible device on /dev/ttyAMA0...');
+//serialport.list(readPorts);
+connect('/dev/ttyAMA0');

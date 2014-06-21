@@ -14,6 +14,11 @@
     "thumb" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1_thumb.jpg",
     "image" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1.jpg",
   },
+  "ARMINARM" : {
+    "json" : "ARMINARM.json",
+    "thumb" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1_thumb.jpg",
+    "image" : "http://www.espruino.com/img/ESPRUINOBOARD_R1_1.jpg",
+  },
   "STM32VLDISCOVERY" : {
     "json" : "STM32VLDISCOVERY.json",
     "thumb" : "http://www.espruino.com/img/STM32VLDISCOVERY_thumb.jpg",
