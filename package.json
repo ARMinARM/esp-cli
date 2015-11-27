@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "async": "~0.2.9",
-    "serialport": "~1.2.5"
+    "serialport": "~2.0.5"
   },
   "keywords": [
     "espruino"
